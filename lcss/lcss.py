@@ -36,6 +36,7 @@ cl_list= []
 
 def process(data, src_dir):
     r = ''
+    cur = ''
     for line in data.split('\n'):
         line = line.strip()
         if line.startswith(('.', '#')):
@@ -82,6 +83,8 @@ for files in conf.FILES:
 
 
     f = open(files['out'], 'w')
-    f.write(process(data, src_dir))
+    out = process(data, src_dir)
+    f.write(out)
     f.close()
-#print(process(data))
+    #print(out)
+
