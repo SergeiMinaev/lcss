@@ -39,3 +39,6 @@ def test_imports_1(): check('imports_1')
 
 
 def test_mixins_1(): check('mixins_1')
+
+
+def test_fontface_1(): check('fontface_1')

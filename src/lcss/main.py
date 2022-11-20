@@ -90,12 +90,10 @@ def flatify(obj, path=[], r=''):
     level = 0
     if type(obj) is dict:
         for k in obj.keys():
-            if k.startswith('@') and not k.startswith('@mixin'):
+            if k.startswith('@') and not k.startswith('@mixin') and not k.startswith('@font-face'):
                 r += k + ' {\n'
                 level += 1
                 r = flatify(obj[k], path, r)
-            elif k.startswith('@supports'):
-                r += k + ' {\n'
             elif k == '_values':
                 r += get_selector(path) + ' {\n'
                 r += '    ' + stringify_values(obj[k]) + '\n'
