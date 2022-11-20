@@ -1,0 +1,62 @@
+.box {
+  padding: 1px;
+  margin: 1px;
+  position: relative;
+  left: 0;
+}
+.box__inner {
+  padding: 10px;
+}
+.box__inner p {
+  padding: 20px;
+}
+.box__inner--abc {
+  border: 1px solid;
+  opacity: .5;
+}
+.box img {
+  padding: 0;
+}
+.box img:last-child {
+  font-weight: 300;
+}
+.box img:hover {
+  padding: 0;
+}
+
+@keyframes myanim  {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+h1 {
+    color: gray;
+}
+
+@supports (display: flex)  {
+  @media screen and (max-width: 400px)  {
+    article {
+      display: flex;
+    }
+    article--new {
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 10px;
+      font-weight: bold;
+    }
+    .box__inner--1 {
+      padding: 0;
+    }
+    .box__inner--2 {
+      margin: 0;
+    }
+  }
+}

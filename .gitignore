@@ -1,0 +1,8 @@
+*.swo
+*.swp
+__pycache__/
+__pypackages__/
+.pdm.toml
+build/
+dist/
+lcss_config.py

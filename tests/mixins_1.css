@@ -1,0 +1,16 @@
+.box {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Chrome, Firefox */
+}
+.box img {
+  background-image: url(bg.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

@@ -1,0 +1,15 @@
+.btn {
+  padding: 10px;
+}
+.btn--1 {
+  padding: 5px;
+}
+.list {
+  font-weight: 300;
+}
+.list .item {
+  padding: 5px;
+}
+a {
+  text-decoration: underline;
+}
