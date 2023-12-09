@@ -1,0 +1,14 @@
+.box {
+  font-size: 12px;
+  /* useful comment */
+  & img {
+    /*
+     * multiline
+     * useful comment
+     */
+    @mixin bg('bg.webp');
+  }
+  &__inner {
+    color: black;
+  }
+}

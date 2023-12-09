@@ -18,10 +18,10 @@ def check(name, native_nesting=False):
     try:
         assert result == correct
     finally:
-        #print('Result:\n')
-        #print(result)
-        #print('Correct:\n')
-        #print(correct)
+        print('Result:\n')
+        print(result)
+        print('Correct:\n')
+        print(correct)
         print('Short diff:\n')
         for text in difflib.unified_diff(correct.split("\n"), result.split("\n")):
             if text[:3] not in ('+++', '---', '@@ '):
@@ -47,3 +47,6 @@ def test_fontface_1(): check('fontface_1')
 
 
 def test_native_nesting_1(): check('native_nesting_1', native_nesting=True)
+
+
+def test_comments_1(): check('comments_1')

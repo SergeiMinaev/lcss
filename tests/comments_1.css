@@ -1,0 +1,17 @@
+.box {
+  font-size: 12px;
+  /* useful comment */
+}
+.box img {
+  /*
+   * multiline
+   * useful comment
+   */
+  background-image: url(bg.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.box__inner {
+  color: black;
+}
