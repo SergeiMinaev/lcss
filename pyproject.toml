@@ -14,8 +14,10 @@ license = {text = "BSD 2-Clause License"}
 lcss = "lcss:run"
 
 [build-system]
-requires = ["pdm-pep517>=1.0.0"]
-build-backend = "pdm.pep517.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
-[tool]
-[tool.pdm]
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=7.4.3",
+]
