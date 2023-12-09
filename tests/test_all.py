@@ -46,7 +46,10 @@ def test_mixins_1(): check('mixins_1')
 def test_fontface_1(): check('fontface_1')
 
 
+def test_comments_1(): check('comments_1')
+
+
 def test_native_nesting_1(): check('native_nesting_1', native_nesting=True)
 
 
-def test_comments_1(): check('comments_1')
+def test_native_nesting_2(): check('native_nesting_2', native_nesting=True)

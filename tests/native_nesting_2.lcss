@@ -1,0 +1,18 @@
+.native {
+  & .sub1 {
+    color: black;
+  }
+  .sub2 {
+    /* useful comment */
+    color: green;
+    @mixin bg('bg.webp');
+  }
+  panel {
+    h1 {
+      /* useful
+       * multiline
+       * comment */
+      font-weight: 700;
+    }
+  }
+}
