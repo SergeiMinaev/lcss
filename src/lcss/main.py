@@ -18,6 +18,7 @@ FILES = [
     #    'out': os.path.join(BASE_DIR, 'static/style/style.css'),
     #},
 ]
+NATIVE_NESTING = False
 """
 
 
@@ -32,22 +33,30 @@ def check_config():
               + ' Edit it to suit your needs and try again.')
 
 
-def normalize(s):
-    s = re.sub(' +', ' ', s)
-    s = re.sub('\n', '', s)
-    s = re.sub(r'\s*([{}:;])\s*', r'\1', s)
+def add_linebreaks(s):
+    s = re.sub(r'({|;|}|\*/)', r'\1\n', s)
+    s = re.sub(r"^\s+", '', s, flags=re.MULTILINE)
     return s
 
 
-def add_linebreaks(s): return re.sub(r'([{};])', r'\1\n', s)
+def minify(s):
+    s = re.sub(' +', ' ', s)
+    s = re.sub('\n', '', s)
+    s = re.sub(r'\s*([;:{}])\s*', r'\1', s)
+    return s
 
 
-def transpile(data, src_dir, mixins=None):
+def transpile(data, src_dir, mixins=None, is_native_nesting=False, is_minify=True):
     """
     Main function to convert LCSS string to CSS.
     """
     data = load_imports(data, src_dir)
-    r = handle_mixins(flatify(nested_dict(data)), mixins)
+    if not is_native_nesting:
+        r = handle_mixins(flatify(nested_dict(data)), mixins)
+    else:
+        r = handle_mixins(data, mixins)
+    if minify:
+        r = minify(r)
     return r
 
 
@@ -149,7 +158,7 @@ def handle_mixins(data, mixins=None):
 
 
 def load_imports(data, src_dir):
-    data = add_linebreaks(normalize(data))
+    data = add_linebreaks(minify(data))
     r = ''
     for line in data.split('\n'):
         if line.startswith('@import'):
@@ -187,7 +196,8 @@ def run():
             f.close()
 
             f = open(files['out'], 'w')
-            out = transpile(data, src_dir, mixins)
+            out = transpile(data, src_dir, mixins,
+                            is_native_nesting=conf.NATIVE_NESTING, is_minify=True)
             f.write(out)
             f.close()
             print(os.path.basename(files['in']), '->', os.path.basename(files['out']))

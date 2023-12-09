@@ -1,0 +1,17 @@
+.native {
+  & .sub1 {
+    color: black;
+  }
+  .sub2 {
+    color: green;
+    background-image: url(bg.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  panel {
+    h1 {
+      font-weight: 700;
+    }
+  }
+}

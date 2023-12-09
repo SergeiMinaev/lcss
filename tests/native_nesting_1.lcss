@@ -1,0 +1,14 @@
+.native {
+  & .sub1 {
+    color: black;
+  }
+  .sub2 {
+    color: green;
+    @mixin bg('bg.webp');
+  }
+  panel {
+    h1 {
+      font-weight: 700;
+    }
+  }
+}
