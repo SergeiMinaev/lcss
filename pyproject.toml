@@ -1,6 +1,6 @@
 [project]
 name = "lcss"
-version = "0.3.0"
+version = "0.3.1"
 description = "CSS pre-processor written in Python with limited set of features: nesting, mixins, bundling and nothing more. It's simple and fast."
 authors = [
     {name = "Sergei Minaev", email = "i@zenux.ru"},
